@@ -21,9 +21,9 @@ class PostsTableSeeder extends Seeder
             $new_post = new Post();
             $new_post->category_id = Category::inRandomOrder()->first()->id;
             $new_post->title = $faker->sentence();
-            $new_post-> slug = Helper::generateSlug($new_post->title, Post::class);
-            $new_post-> txt = $faker->paragraph();
-            $new_post-> reading_time = $faker-> numberBetween(1, 10);
+            $new_post->slug = Helper::generateSlug($new_post->title, Post::class);
+            $new_post->txt = $faker->paragraph();
+            $new_post->reading_time = $faker-> numberBetween(1, 10);
             $new_post->save();
         }        
     }

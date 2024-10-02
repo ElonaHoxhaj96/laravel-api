@@ -14,6 +14,7 @@
         </h5>
     </div>     
     <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Slug:</strong> {{$posts->slug}}</li>
         <li class="list-group-item"><strong>Categoria:</strong> {{$posts->category ? $posts->category->name : 'Nessuna Categoria'}}</li>
         <li class="list-group-item"><strong>Contenuto:</strong> {{$posts->txt}}</li>
         <li class="list-group-item"><strong>Tempo di lettura:</strong> {{$posts->reading_time}}</li>
