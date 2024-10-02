@@ -15,7 +15,7 @@ use App\Http\Controllers\Api\PageController;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/posts', [PageController::class, 'index']);
 Route::get('/post-by-slug/{slug}', [PageController::class, 'postBySlug']);
 Route::get('/categories', [PageController::class, 'categories']);
 Route::get('/tags', [PageController::class, 'tags']);
