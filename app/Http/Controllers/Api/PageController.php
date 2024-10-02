@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $posts = Post::orderBy('id', 'desc')->get();
+        //con with() ottengo le entità in relazione 
+        $posts = Post::orderBy('id', 'desc')->with('category', 'tags')->paginate(10);
 
         $succsess = true;
 
@@ -18,6 +19,15 @@ class PageController extends Controller
             'results' => $posts
         ];
         //è preferibile non utilizzare il compact
-        return response()->json($response);
+        return response()->json($posts);
+    }
+
+    public function postBySlug($slug)
+    {
+        // Recupera il post in base allo slug
+        $post = Post::where('slug', $slug)->with('category', 'tags')->first();
+        dump($post);
+    
+      
     }
 }
