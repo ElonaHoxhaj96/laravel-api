@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\CategoryS;
 use App\Models\Tag;
+use GrahamCampbell\ResultType\Success;
 
 class PageController extends Controller
 {
@@ -47,5 +48,26 @@ class PageController extends Controller
         $tags = Tag::all();
 
         return response()->json($tags);
+    }
+
+    public function postByCategory( $slug ){
+        $category = Category::where('slug', $slug)->with('posts')->first();
+        if($category){
+            $succses= true;
+        }else{
+            $succses= false;
+        }
+
+        return response()->json(compact('succses', 'category'));
+    }
+    public function postBytags( $slug ){
+        $tags = Tag::where('slug', $slug)->with('posts')->first();
+        if($tags){
+            $succses= true;
+        }else{
+            $succses= false;
+        }
+
+        return response()->json(compact('succses', 'tags'));
     }
 }

@@ -19,3 +19,5 @@ Route::get('/', [PageController::class, 'index']);
 Route::get('/post-by-slug/{slug}', [PageController::class, 'postBySlug']);
 Route::get('/categories', [PageController::class, 'categories']);
 Route::get('/tags', [PageController::class, 'tags']);
+Route::get('/posts-by-category/{slug}', [PageController::class, 'postByCategory']);
+Route::get('/posts-by-tags/{slug}', [PageController::class, 'postByTags']);
